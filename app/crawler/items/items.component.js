@@ -13,11 +13,12 @@ var core_1 = require("@angular/core");
 var router_1 = require("@angular/router");
 var modal_component_1 = require("../../common/modal/modal.component");
 var forms_1 = require("@angular/forms");
+var items_service_1 = require("./items.service");
 var ItemsComponent = (function () {
-    function ItemsComponent(
-        // private _expensesService: ExpensesService,
+    function ItemsComponent(_itemsService, 
         // private _eventExpenseService: EventExpenseService,
         _router, fb) {
+        this._itemsService = _itemsService;
         this._router = _router;
         this.fb = fb;
         // paymentMethods: PaymentMethod[];
@@ -27,13 +28,15 @@ var ItemsComponent = (function () {
             // other options...
             dateFormat: 'dd-mm-yyyy',
         };
-        this.model = { date: { year: 2018, month: 10, day: 9 } };
         this.pageTitle = 'Items';
     }
-    ItemsComponent.prototype.onDateChanged = function (event) {
-        // date selected
-    };
     ItemsComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this._itemsService.getItems().subscribe(function (items) {
+            _this.items = items;
+        }, function (error) {
+            console.log(error);
+        });
     };
     __decorate([
         core_1.ViewChild(modal_component_1.ModalComponent),
@@ -44,7 +47,8 @@ var ItemsComponent = (function () {
             moduleId: module.id,
             templateUrl: 'items.component.html'
         }),
-        __metadata("design:paramtypes", [router_1.Router,
+        __metadata("design:paramtypes", [items_service_1.ItemsService,
+            router_1.Router,
             forms_1.FormBuilder])
     ], ItemsComponent);
     return ItemsComponent;

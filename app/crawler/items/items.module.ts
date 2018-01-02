@@ -5,6 +5,7 @@ import {Ng2SmartTableModule} from "ng2-smart-table";
 import {HTCommonModule} from "../../common/htCommon.module";
 import {ReactiveFormsModule} from "@angular/forms";
 import {ItemsComponent} from "./items.component";
+import {ItemsService} from "./items.service";
 
 @NgModule({
   imports: [
@@ -21,7 +22,7 @@ import {ItemsComponent} from "./items.component";
       ItemsComponent
   ],
   providers: [
-    // ExpensesService,
+    ItemsService,
   ]
 })
 export class ItemsModule {

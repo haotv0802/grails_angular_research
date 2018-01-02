@@ -2,7 +2,9 @@ import {Component, OnInit, ViewChild} from "@angular/core";
 import {Router} from "@angular/router";
 import {ModalComponent} from "../../common/modal/modal.component";
 import {FormBuilder, FormGroup} from "@angular/forms";
-import {IMyDateModel, INgxMyDpOptions} from "ngx-mydatepicker";
+import {INgxMyDpOptions} from "ngx-mydatepicker";
+import {ItemsService} from "./items.service";
+import {ItemPresenter} from "./itemPresenter";
 
 @Component({
   moduleId: module.id,
@@ -10,6 +12,7 @@ import {IMyDateModel, INgxMyDpOptions} from "ngx-mydatepicker";
 })
 export class ItemsComponent implements OnInit {
   pageTitle: string;
+  items: ItemPresenter[];
   // paymentMethods: PaymentMethod[];
   // expensesDetails: ExpensesDetailsPresenter;
   loaderOpen: boolean = true;
@@ -22,21 +25,24 @@ export class ItemsComponent implements OnInit {
     // other options...
     dateFormat: 'dd-mm-yyyy',
   };
-  public model: Object = { date: { year: 2018, month: 10, day: 9 } };
 
   constructor(
-    // private _expensesService: ExpensesService,
+    private _itemsService: ItemsService,
     // private _eventExpenseService: EventExpenseService,
     private _router: Router,
     private fb: FormBuilder,
   ) {
     this.pageTitle = 'Items';
   }
-  onDateChanged(event: IMyDateModel): void {
-    // date selected
-  }
-  ngOnInit(): void {
 
+  ngOnInit(): void {
+    this._itemsService.getItems().subscribe(
+      (items) => {
+        this.items = items;
+      }, (error) => {
+        console.log(error);
+      }
+    );
   }
 
 }

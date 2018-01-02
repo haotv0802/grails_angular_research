@@ -13,6 +13,7 @@ var ng2_smart_table_1 = require("ng2-smart-table");
 var htCommon_module_1 = require("../../common/htCommon.module");
 var forms_1 = require("@angular/forms");
 var items_component_1 = require("./items.component");
+var items_service_1 = require("./items.service");
 var ItemsModule = (function () {
     function ItemsModule() {
     }
@@ -30,7 +31,9 @@ var ItemsModule = (function () {
             declarations: [
                 items_component_1.ItemsComponent
             ],
-            providers: []
+            providers: [
+                items_service_1.ItemsService,
+            ]
         })
     ], ItemsModule);
     return ItemsModule;

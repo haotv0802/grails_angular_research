@@ -2,7 +2,40 @@
     <div class='panel-heading' style='font-size:large'>
         {{pageTitle}}
     </div>
-
+    <div class="table-responsive" align="center" style="width:100%;overflow:auto; max-height:500px;">
+        <table class="table table-bordered table-hover" style="width: 1145px;">
+            <thead style="color: #337AB7">
+                <th class="col-sm-2">Name</th>
+                <th class="col-sm-1">Phone</th>
+                <th class="col-sm-1">Email</th>
+                <th class="col-sm-1">Acreage</th>
+                <th class="col-sm-1">Price</th>
+                <th class="col-sm-1">District</th>
+                <th class="col-sm-1">City</th>
+                <th class="col-sm-2">URL</th>
+            </thead>
+            <tr>
+                <td>Name</td>
+                <td>Phone</td>
+                <td>Email</td>
+                <td>Acreage</td>
+                <td>Price</td>
+                <td>District</td>
+                <td>City</td>
+                <td>URL</td>
+            </tr>
+            <tr *ngFor="let item of items">
+                <td>{{item.contactName}}</td>
+                <td>{{item.contactNumber}}</td>
+                <td>{{item.contactEmail}}</td>
+                <td>{{item.acreage}}</td>
+                <td>{{item.price}}</td>
+                <td>{{item.district}}</td>
+                <td>{{item.city}}</td>
+                <td><a href="{{item.url}}">Link</a></td>
+            </tr>
+        </table>
+    </div>
     <br/>
     <br/>
     <br/>
