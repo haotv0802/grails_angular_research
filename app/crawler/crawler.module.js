@@ -7,12 +7,15 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
+var items_module_1 = require("./items/items.module");
 var CrawlerModule = (function () {
     function CrawlerModule() {
     }
     CrawlerModule = __decorate([
         core_1.NgModule({
-            imports: [],
+            imports: [
+                items_module_1.ItemsModule
+            ],
             declarations: [],
             exports: [],
             providers: []
