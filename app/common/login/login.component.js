@@ -16,19 +16,15 @@ var router_1 = require("@angular/router");
 var constant_1 = require("./../constant");
 var forms_1 = require("@angular/forms");
 var angular2_toaster_1 = require("angular2-toaster");
-var messages_service_1 = require("../messages/messages.service");
 var LoginComponent = (function () {
-    function LoginComponent(loginService, _router, _constants, fb, _toasterService, _messagesService) {
+    function LoginComponent(loginService, _router, _constants, fb, _toasterService) {
         this.loginService = loginService;
         this._router = _router;
         this._constants = _constants;
         this.fb = fb;
         this._toasterService = _toasterService;
-        this._messagesService = _messagesService;
     }
     LoginComponent.prototype.ngOnInit = function () {
-        this.messages = this._messagesService.getCommonMessagesByName("login");
-        // this.loadMessages();
         this.loginForm = this.fb.group({
             username: ['haho', [forms_1.Validators.required]],
             password: ['hoanhhao', [forms_1.Validators.required]],
@@ -50,13 +46,6 @@ var LoginComponent = (function () {
         // ;
     };
     LoginComponent.prototype.loadMessages = function () {
-        var _this = this;
-        this._messagesService.getCommonMessages_() // re-load common message with LANGUAGE just set.
-            .subscribe(function () {
-            _this.messages = _this._messagesService.getCommonMessagesByName("login");
-        }, function (error) {
-            console.log(error);
-        });
     };
     LoginComponent.prototype.login = function () {
         var _this = this;
@@ -96,10 +85,9 @@ var LoginComponent = (function () {
             router_1.Router,
             constant_1.Constants,
             forms_1.FormBuilder,
-            angular2_toaster_1.ToasterService, typeof (_a = typeof messages_service_1.MessagesService !== "undefined" && messages_service_1.MessagesService) === "function" && _a || Object])
+            angular2_toaster_1.ToasterService])
     ], LoginComponent);
     return LoginComponent;
-    var _a;
 }());
 exports.LoginComponent = LoginComponent;
 //# sourceMappingURL=login.component.js.map

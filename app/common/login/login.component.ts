@@ -5,7 +5,6 @@ import {Router} from "@angular/router";
 import {Constants} from "./../constant";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ToasterService} from "angular2-toaster";
-import {MessagesService} from "../messages/messages.service";
 
 @Component({
   templateUrl: 'app/common/login/login.component.html'
@@ -22,14 +21,11 @@ export class LoginComponent implements OnInit {
     private _router: Router,
     private _constants: Constants,
     private fb: FormBuilder,
-    private _toasterService: ToasterService,
-    private _messagesService: MessagesService
+    private _toasterService: ToasterService
   ) {
   }
 
   ngOnInit(): void {
-    this.messages = this._messagesService.getCommonMessagesByName("login");
-    // this.loadMessages();
 
     this.loginForm = this.fb.group({
       username: ['haho', [Validators.required]],
@@ -55,16 +51,7 @@ export class LoginComponent implements OnInit {
   }
 
   loadMessages(): void {
-    this._messagesService.getCommonMessages_() // re-load common message with LANGUAGE just set.
-      .subscribe(
-        () => {
-          this.messages = this._messagesService.getCommonMessagesByName("login");
-        },
-        (error: Error) => {
-          console.log(error);
-        }
-      )
-    ;
+
   }
 
   login() {

@@ -19,6 +19,7 @@ var htCommon_module_1 = require("./common/htCommon.module");
 var angular2_toaster_1 = require("angular2-toaster");
 var angular2_modal_1 = require("angular2-modal");
 var bootstrap_1 = require("angular2-modal/plugins/bootstrap");
+var crawler_module_1 = require("./crawler/crawler.module");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -31,6 +32,7 @@ var AppModule = (function () {
                     { path: 'welcome', component: welcome_component_1.WelcomeComponent },
                     { path: '', redirectTo: 'welcome', pathMatch: 'full' },
                 ]),
+                crawler_module_1.CrawlerModule,
                 htCommon_module_1.HTCommonModule,
                 angular2_toaster_1.ToasterModule,
                 angular2_modal_1.ModalModule.forRoot(),
