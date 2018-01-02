@@ -3,6 +3,8 @@
         {{pageTitle}}
     </div>
     <div class="table-responsive" align="center" style="width:100%;overflow:auto; max-height:500px;">
+      <form class="form-horizontal" novalidate
+            [formGroup]="itemForm">
         <table class="table table-bordered table-hover" style="width: 1145px;">
             <thead style="color: #337AB7">
                 <th class="col-sm-2">Name</th>
@@ -15,14 +17,87 @@
                 <th class="col-sm-2">URL</th>
             </thead>
             <tr>
-                <td>Name</td>
-                <td>Phone</td>
-                <td>Email</td>
-                <td>Acreage</td>
-                <td>Price</td>
-                <td>District</td>
-                <td>City</td>
-                <td>URL</td>
+                <td>
+                  <div class="form-inline">
+                    <input class="form-control"
+                           id="contactNameId"
+                           type="text"
+                           placeholder="Name"
+                           formControlName="contactName"
+                           style="width: 120px;"
+                           (keyup)="search()"
+                    />
+                  </div>
+                </td>
+                <td>
+                  <div class="form-inline">
+                    <input class="form-control"
+                           id="contactNumberId"
+                           type="text"
+                           placeholder="Phone"
+                           formControlName="contactNumber"
+                           style="width: 120px;"
+                    />
+                  </div>
+                </td>
+                <td>
+                  <div class="form-inline">
+                    <input class="form-control"
+                           id="contactEmailId"
+                           type="text"
+                           placeholder="Email"
+                           formControlName="contactEmail"
+                           style="width: 120px;"
+                    />
+                  </div>
+                </td>
+                <td>
+                  <div class="form-inline">
+                    <input class="form-control"
+                           id="acreageId"
+                           type="text"
+                           placeholder="Acreage"
+                           formControlName="acreage"
+                           style="width: 120px;"
+                    />
+                  </div>
+                </td>
+                <td>
+                  <div class="form-inline">
+                    <input class="form-control"
+                           id="priceId"
+                           type="text"
+                           placeholder="Price"
+                           formControlName="price"
+                           style="width: 120px;"
+                    />
+                  </div>
+                </td>
+                <td>
+                  <div class="form-inline">
+                    <input class="form-control"
+                           id="districtId"
+                           type="text"
+                           placeholder="District"
+                           formControlName="district"
+                           style="width: 120px;"
+                    />
+                  </div>
+                </td>
+                <td>
+                  <div class="form-inline">
+                    <input class="form-control"
+                           id="cityId"
+                           type="text"
+                           placeholder="City"
+                           formControlName="city"
+                           style="width: 120px;"
+                    />
+                  </div>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-link" (click)="search()">Search</button>
+                </td>
             </tr>
             <tr *ngFor="let item of items">
                 <td>{{item.contactName}}</td>
@@ -35,6 +110,7 @@
                 <td><a href="{{item.url}}">Link</a></td>
             </tr>
         </table>
+      </form>
     </div>
     <br/>
     <br/>

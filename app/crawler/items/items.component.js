@@ -30,8 +30,20 @@ var ItemsComponent = (function () {
         };
         this.pageTitle = 'Items';
     }
+    ItemsComponent.prototype.search = function () {
+        console.log(this.itemForm.value);
+    };
     ItemsComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.itemForm = this.fb.group({
+            contactName: [''],
+            contactNumber: [''],
+            contactEmail: [''],
+            acreage: [''],
+            price: [''],
+            district: [''],
+            city: ['']
+        });
         this._itemsService.getItems().subscribe(function (items) {
             _this.items = items;
         }, function (error) {

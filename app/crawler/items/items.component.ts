@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from "@angular/core";
 import {Router} from "@angular/router";
 import {ModalComponent} from "../../common/modal/modal.component";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {INgxMyDpOptions} from "ngx-mydatepicker";
 import {ItemsService} from "./items.service";
 import {ItemPresenter} from "./itemPresenter";
@@ -16,7 +16,7 @@ export class ItemsComponent implements OnInit {
   // paymentMethods: PaymentMethod[];
   // expensesDetails: ExpensesDetailsPresenter;
   loaderOpen: boolean = true;
-  expenseForm: FormGroup;
+  itemForm: FormGroup;
   // editHidden: boolean = false;
   // expenseEdit: Expense = new Expense();
   @ViewChild(ModalComponent) modal: ModalComponent;
@@ -35,7 +35,21 @@ export class ItemsComponent implements OnInit {
     this.pageTitle = 'Items';
   }
 
+  search(): void {
+    console.log(this.itemForm.value);
+  }
+
   ngOnInit(): void {
+    this.itemForm = this.fb.group({
+      contactName: [''],
+      contactNumber: [''],
+      contactEmail: [''],
+      acreage: [''],
+      price: [''],
+      district: [''],
+      city: ['']
+    });
+
     this._itemsService.getItems().subscribe(
       (items) => {
         this.items = items;
