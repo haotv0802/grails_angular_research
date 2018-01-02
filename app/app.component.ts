@@ -1,6 +1,5 @@
 import {Component, OnInit} from "@angular/core";
 import {ToasterService} from "angular2-toaster";
-import {MessagesService} from "./common/messages/messages.service";
 
 @Component({
     selector: 'ht-app',
@@ -31,13 +30,11 @@ export class AppComponent implements OnInit {
     toastIndex: number = 0;
 
     constructor(
-      private _toasterService: ToasterService,
-      private _messagesService: MessagesService
+      private _toasterService: ToasterService
     ) {
     }
 
     ngOnInit(): void {
-        this._messagesService.getCommonMessages();
     }
 
     popToast() {

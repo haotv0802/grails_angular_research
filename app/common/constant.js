@@ -10,7 +10,8 @@ var core_1 = require("@angular/core");
 var Constants = (function () {
     function Constants() {
         this.LANGUAGE = "en";
-        this.HOST = 'http://localhost:8880/fm-be/svc';
+        this.HOST = 'http://localhost:8080';
+        this.ITEMS_LIST = this.HOST + '/items/list';
         this.LOGIN_SERVICE_URL = this.HOST + '/login';
         // Toaster types
         this.TOASTER_SUCCESS = "success";

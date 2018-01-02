@@ -11,17 +11,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var angular2_toaster_1 = require("angular2-toaster");
-var messages_service_1 = require("./common/messages/messages.service");
 var AppComponent = (function () {
-    function AppComponent(_toasterService, _messagesService) {
+    function AppComponent(_toasterService) {
         this._toasterService = _toasterService;
-        this._messagesService = _messagesService;
         // pageTitle: string = 'Acme Product Management';
         this.toastList = new Array();
         this.toastIndex = 0;
     }
     AppComponent.prototype.ngOnInit = function () {
-        this._messagesService.getCommonMessages();
     };
     AppComponent.prototype.popToast = function () {
         var toast = this._toasterService.pop('success', 'Args Title', 'Args Body');
@@ -54,8 +51,7 @@ var AppComponent = (function () {
             //  `
             templateUrl: 'app/app.component.html'
         }),
-        __metadata("design:paramtypes", [angular2_toaster_1.ToasterService,
-            messages_service_1.MessagesService])
+        __metadata("design:paramtypes", [angular2_toaster_1.ToasterService])
     ], AppComponent);
     return AppComponent;
 }());

@@ -96,10 +96,10 @@ var LoginComponent = (function () {
             router_1.Router,
             constant_1.Constants,
             forms_1.FormBuilder,
-            angular2_toaster_1.ToasterService,
-            messages_service_1.MessagesService])
+            angular2_toaster_1.ToasterService, typeof (_a = typeof messages_service_1.MessagesService !== "undefined" && messages_service_1.MessagesService) === "function" && _a || Object])
     ], LoginComponent);
     return LoginComponent;
+    var _a;
 }());
 exports.LoginComponent = LoginComponent;
 //# sourceMappingURL=login.component.js.map

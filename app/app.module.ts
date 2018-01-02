@@ -13,7 +13,6 @@ import {HTCommonModule} from "./common/htCommon.module";
 import {ToasterModule} from "angular2-toaster";
 import {ModalModule} from "angular2-modal";
 import {BootstrapModalModule} from "angular2-modal/plugins/bootstrap";
-import {MessagesService} from "./common/messages/messages.service";
 import {FmModule} from "./fm/fm.module";
 import {NgxMyDatePickerModule} from "ngx-mydatepicker";
 
@@ -26,9 +25,6 @@ import {NgxMyDatePickerModule} from "ngx-mydatepicker";
       {path: '', redirectTo: 'welcome', pathMatch: 'full'},
       // {path: '**', redirectTo: 'welcome', pathMatch: 'full'}
     ]),
-    LoginModule,
-    ProductModule,
-    FmModule,
     HTCommonModule,
     ToasterModule,
     ModalModule.forRoot(),
@@ -42,7 +38,6 @@ import {NgxMyDatePickerModule} from "ngx-mydatepicker";
   ],
   providers: [
     Constants,
-    MessagesService,
     HTTPService
   ],
   bootstrap: [AppComponent]
